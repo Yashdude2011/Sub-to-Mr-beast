@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Subscribe to Mr. Beast</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      background-color: #f5f5f5;
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      padding: 50px;
+    }
+    h1 {
+      color: #333;
+    }
+    #subscribeBtn {
+      padding: 10px 20px;
+      font-size: 16px;
+      background-color: #ff0000;
+      color: #fff;
+      border: none;
+      cursor: pointer;
+      border-radius: 5px;
+      margin-top: 20px;
+    }
+    #counter {
+      font-size: 24px;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Subscribe to Mr. Beast on YouTube!</h1>
+    <p>Help support Mr. Beast by subscribing to his channel.</p>
+    <button id="subscribeBtn">Subscribe Now!</button>
+    <p id="counter">This page has been opened <span id="visitCount">0</span> times.</p>
+  </div>
+
+  <script>
+    // Function to increment the visit count and update the display
+    function incrementCount() {
+      if (localStorage.getItem('visitCount')) {
+        let count = parseInt(localStorage.getItem('visitCount'));
+        count++;
+        localStorage.setItem('visitCount', count);
+        document.getElementById('visitCount').innerText = count;
+      } else {
+        localStorage.setItem('visitCount', 1);
+        document.getElementById('visitCount').innerText = 1;
+      }
+    }
+
+    // Add event listener to the subscribe button
+    document.getElementById('subscribeBtn').addEventListener('click', function() {
+      // Replace this link with Mr. Beast's YouTube channel link
+      window.open('https://www.youtube.com/channel/UCX6OQ3DkcsbYNE6H8uQQuVA', '_blank');
+    });
+
+    // On page load, update visit count
+    window.onload = function() {
+      incrementCount();
+    };
+  </script>
+</body>
+</html>
